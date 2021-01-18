@@ -1,7 +1,7 @@
 # apcupsd-pfsense-widget
 A pfsense widget for the apcupsd daemon
 
-A simple widget to be used in conjunction with the apcupsd package that displays the output apcacess command
+A simple widget to be used in conjunction with the apcupsd package that displays various information from apcacess command
 This was based upon the output of apcacess with a BACKUPS RS 1000
 
 INSTALLATION
