@@ -36,14 +36,11 @@ if ($_REQUEST['ajax']) {
 				$results_for_json[trim(explode(': ',$v)[0])]=trim(explode(': ',$v)[1]);
 			}
 			$json_results=json_encode($results_for_json);
-			$config['widgets']['apcupsd_apcaccess'] = $josn_results;
-			write_config("Save apcupsd apcaccess results");
 			echo $json_results;
     } else {
         echo json_encode(null);
     }
 } else {
-    $results = isset($config['widgets']['apcupsd_apcaccess']) ? $config['widgets']['apcupsd_apcaccess'] : null;
     if(($results !== null) && (!is_object(json_decode($results)))) {
         $results = null;
     }
@@ -104,7 +101,7 @@ function update_apcupsd_result(results) {
 			}
 			if (results.LOADPCT!=undefined) {
 				setProgress('apcupsd_load_meter', parseInt(results.LOADPCT));
-				$('#apcupsd_load_val').html('<i class="fa fa-battery-full"/>&nbsp;'+results.LOADPCT);
+				$('#apcupsd_load_val').html(results.LOADPCT);
 			}
 			if (results.BCHARGE!=undefined) {
 				setProgress('apcupsd_bcharge_meter', parseInt(results.BCHARGE));
